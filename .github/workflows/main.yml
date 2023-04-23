@@ -28,32 +28,18 @@ jobs:
   
   test-job:
     runs-on: ubuntu-latest
-    container: cheoberin/pipeline:latest
-    
+    name: SAST Validator
     steps:
-      
-      - uses: actions/checkout@v3
-      
-      - name: Install Python
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y python3
+      - name: Checkout repository content
+        uses: actions/checkout@v2 
 
-      
-      - name: Install dependencies && python3 -V
-        run: |
-          pip install Flask
-          python3 -V
-      
-      - name: Run app.py
-        run: |
-          python3 app.py
-          
-      - uses: AppThreat/sast-scan-action@master
+      - name: SAST validator
+        uses: michelleamesquita/sast-validator@v40
         with:
-          type: "python"
+          options: -v $PWD/:/app
+          path: .
+          language: python
         
-            
   deploy-job:
     runs-on: ubuntu-latest
     steps:
