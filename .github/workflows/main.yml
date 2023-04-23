@@ -39,11 +39,9 @@ jobs:
           pip install Flask
           python3 -V
       
-      - name: Run app.py for 20 seconds
+      - name: Run app.py
         run: |
-          python3 app.py &
-          sleep 20s
-          pkill -f "python3 app.py"
+          python3 app.py
       - uses: AppThreat/sast-scan-action@master
         with:
           type: "python"
