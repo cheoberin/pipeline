@@ -60,7 +60,8 @@ jobs:
       - uses: actions/checkout@v3
       - run: echo "Finalizado!"
       
-      - name: Send SAST results to Discord
-        uses: tenzin1308/discord-notification@v1.0.0
+      - name: Discord Reporter
+  
+        uses: TeamGalacticraft/discord-reporter@1.0.0
         with:
-          discord-webhook-url:: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
