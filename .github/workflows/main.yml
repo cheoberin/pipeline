@@ -66,5 +66,7 @@ jobs:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           payload: |
             {
-              "content": "SAST scan complete"
+              "name": "Pipeline notification",
+              "type": 3,
+              "message": "SAST scan complete"
             }
