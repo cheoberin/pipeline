@@ -61,12 +61,6 @@ jobs:
       - run: echo "Finalizado!"
       
       - name: Send SAST results to Discord
-        uses: appleboy/discord-action@master
+        uses: tenzin1308/discord-notification@v1.0.0
         with:
-          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          payload: |
-            {
-              "name": "Pipeline notification",
-              "type": 3,
-              "message": "SAST scan complete"
-            }
+          discord-webhook-url:: ${{ secrets.DISCORD_WEBHOOK_URL }}
