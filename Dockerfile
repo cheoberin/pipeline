@@ -1,10 +1,14 @@
 FROM ubuntu:latest
-RUN apt-get update
-RUN apt-get install nginx -y && \
-    apt-get install -y git python3 python3-pip
 
-COPY . /app
+RUN apt-get update \
+    && apt-get install -y python3 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN mkdir /app
+
 WORKDIR /app
 
-EXPOSE 80
+COPY . /app
+
 CMD ["python3", "app.py"]
