@@ -66,7 +66,5 @@ jobs:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           payload: |
             {
-              "username": "SAST Bot",
-              "avatar_url": "https://avatars.githubusercontent.com/u/82663776?s=200&v=4",
               "content": "SAST scan complete"
             }
