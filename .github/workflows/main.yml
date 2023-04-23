@@ -59,9 +59,3 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "Finalizado!"
-      
-      - name: Discord Reporter
-  
-        uses: TeamGalacticraft/discord-reporter@1.0.0
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
